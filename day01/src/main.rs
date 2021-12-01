@@ -8,7 +8,20 @@ fn main() {
     let lines: Vec<&str> = data.split('\n').filter(|line| !line.is_empty()).collect();
     let depths: Vec<i32> = lines.iter().map(|line| line.parse::<i32>().unwrap()).collect();
 
-    for depth in depths {
-        println!("{}", depth);
+    println!("{}", num_increases(depths));
+}
+
+fn num_increases(depths: Vec<i32>) -> i32 {
+    let mut increases = 0;
+
+    for (index, depth) in depths.iter().enumerate() {
+        if index < depths.len() - 1 {
+            let next_depth = depths[index + 1];
+            if next_depth > *depth {
+                increases += 1;
+            }
+        }
     }
+
+    increases
 }
