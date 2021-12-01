@@ -8,7 +8,7 @@ fn main() {
     let lines: Vec<&str> = data.split('\n').filter(|line| !line.is_empty()).collect();
     let depths: Vec<i32> = lines.iter().map(|line| line.parse::<i32>().unwrap()).collect();
 
-    println!("{}", num_increases(depths));
+    println!("number of increases: {}", num_increases(depths));
 }
 
 fn num_increases(depths: Vec<i32>) -> i32 {
