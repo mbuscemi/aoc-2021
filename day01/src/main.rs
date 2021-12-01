@@ -14,12 +14,12 @@ fn main() {
 fn num_increases(depths: Vec<i32>) -> i32 {
     let mut increases = 0;
 
-    for (index, depth) in depths.iter().enumerate() {
-        if index < depths.len() - 1 {
-            let next_depth = depths[index + 1];
-            if next_depth > *depth {
-                increases += 1;
-            }
+    for index in 0..depths.len()-1 {
+        let depth = depths[index];
+        let next_depth = depths[index + 1];
+        
+        if next_depth > depth {
+            increases += 1;
         }
     }
 
